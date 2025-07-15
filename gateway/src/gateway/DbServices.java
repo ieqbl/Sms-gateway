@@ -15,7 +15,7 @@ public class DbServices
     }
     public void saveMessage(String number,String message) throws SQLException
     {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO Messages (phone,content) (?, ?)");
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO Messages (phone,content) VALUES (?, ?)");
         statement.setString(1, number);
         statement.setString(2, message);
         statement.executeUpdate();
@@ -25,5 +25,10 @@ public class DbServices
     {
         if (connection != null) connection.close();
     }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
 
 }
