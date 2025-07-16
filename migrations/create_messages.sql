@@ -1,4 +1,16 @@
 CREATE TABLE IF NOT EXISTS config (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     config_driver TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS migrations (
+    id SERIAL PRIMARY KEY,
+    filename TEXT UNIQUE NOT NULL,
+    applied_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS messages (
+    id SERIAL PRIMARY KEY,
+    phone TEXT NOT NULL,
+    content TEXT NOT NULL
 );

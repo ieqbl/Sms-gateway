@@ -7,11 +7,8 @@ public class DbServices
     private Connection connection;
     public void Connect() throws SQLException
     {
-        String url = "jdbc:postgresql://"
-                + "127.0.0.1" + ":"
-                + "5432" + "/"
-                + "mydb";
-        connection = DriverManager.getConnection(url,System.getenv("DB_USER"),System.getenv("DB_PASSWORD"));
+        String url = "jdbc:postgresql://127.0.0.1:5432/postgres";
+        connection = DriverManager.getConnection(url, "postgres", "123456");
     }
     public void saveMessage(String number,String message) throws SQLException
     {
